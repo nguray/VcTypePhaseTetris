@@ -4,7 +4,11 @@ import Tetromino from './Tetromino'
 import GameOverScene from './GameOverScene'
 import HighScoreScene from './HighScoreScene';
 
-  
+
+interface ScoreValue {
+	[i: number]: number
+}
+
 export default class GameScene extends Phaser.Scene {
 
 	private graphics!: Phaser.GameObjects.Graphics;
@@ -32,6 +36,7 @@ export default class GameScene extends Phaser.Scene {
 
 	tetrisMusic: any;
 	succesSound: any;
+
 
 	//private cursors: Phaser.Types.Input.Keyboard.CursorKeys | undefined;
 
@@ -71,29 +76,22 @@ export default class GameScene extends Phaser.Scene {
 		return nbLines;
 
 	}
+
+	tblScoreValues: ScoreValue = {
+		0: 0,
+		1: 50,
+		2: 200,
+		3: 400,
+		4: 1200
+	}
 	
-	computeScore(nbLines: number){
-		let s = 0;
-		switch(nbLines){
-		case 0:
-			s = 0;
-			break;
-		case 1:
-			s = 40;
-			break;
-		case 2:
-			s = 100;
-			break;
-		case 3:
-			s = 300;
-			break;
-		case 4:
-			s = 1200;
-			break;
-		default:
-			s = 2000;
+	computeScore(nbLines: number): number{
+
+		let v = this.tblScoreValues[nbLines];
+		if (v==undefined){
+			return 2000;
 		}
-		return s;
+		return v;
 
 	}
 	
@@ -197,6 +195,7 @@ export default class GameScene extends Phaser.Scene {
 	}
 
 	create() {
+
 
 		this.graphics = this.add.graphics({ lineStyle: { width: 2, color: 0x00ff00 }, fillStyle: { color: 0xff0000 }});
 
