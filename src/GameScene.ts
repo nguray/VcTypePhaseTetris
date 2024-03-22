@@ -5,8 +5,8 @@ import GameOverScene from './GameOverScene'
 import HighScoreScene from './HighScoreScene';
 
 
-interface ScoreValue {
-	[i: number]: number
+interface NbLinesToScore {
+	[i: number]: number;
 }
 
 export default class GameScene extends Phaser.Scene {
@@ -37,6 +37,13 @@ export default class GameScene extends Phaser.Scene {
 	tetrisMusic: any;
 	succesSound: any;
 
+	tblLinesToScore: NbLinesToScore = {
+		0: 0,
+		1: 50,
+		2: 200,
+		3: 400,
+		4: 1200
+	}
 
 	//private cursors: Phaser.Types.Input.Keyboard.CursorKeys | undefined;
 
@@ -77,17 +84,9 @@ export default class GameScene extends Phaser.Scene {
 
 	}
 
-	tblScoreValues: ScoreValue = {
-		0: 0,
-		1: 50,
-		2: 200,
-		3: 400,
-		4: 1200
-	}
-	
 	computeScore(nbLines: number): number{
 
-		let v = this.tblScoreValues[nbLines];
+		let v = this.tblLinesToScore[nbLines];
 		if (v==undefined){
 			return 2000;
 		}
