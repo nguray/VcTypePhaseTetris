@@ -122,7 +122,7 @@ export default class Tetromino {
 	  }
 	}
   
-	minX() {
+	minX() : number {
 	  let x;
 	  let mX = this.v[0].x;
 	  for (let i=1;i<this.v.length;i++){
@@ -134,7 +134,7 @@ export default class Tetromino {
 	  return mX;
 	}
   
-	maxX() {
+	maxX() : number {
 	  let x;
 	  let mX = this.v[0].x;
 	  for (let i=1;i<this.v.length;i++){
@@ -146,7 +146,7 @@ export default class Tetromino {
 	  return mX;
 	}
   
-	maxY() {
+	maxY() : number{
 	  let y;
 	  let mY = this.v[0].y;
 	  for (let i=1;i<this.v.length;i++){
@@ -158,19 +158,19 @@ export default class Tetromino {
 	  return mY;
 	}
   
-	column(){
+	column() : number {
 	  return Math.trunc(this.x/GameGlobals.CELL_SIZE);
 	}
   
-	isOutBottomLimit(){
+	isOutBottomLimit() : boolean {
 	  return ((this.maxY())*GameGlobals.CELL_SIZE + this.y)>(GameGlobals.CELL_SIZE*GameGlobals.NB_ROWS);
 	}
   
-	reachBottomLimit(){
+	reachBottomLimit() : boolean {
 	  return ((this.maxY()+1)*GameGlobals.CELL_SIZE + this.y)>(GameGlobals.CELL_SIZE*GameGlobals.NB_ROWS);
 	}
   
-	isOutLeftLimit(){
+	isOutLeftLimit() : boolean {
 	  return (this.minX()*GameGlobals.CELL_SIZE + this.x)<0;
 	}
   
@@ -178,15 +178,16 @@ export default class Tetromino {
 	  return ((this.maxX()+1)*GameGlobals.CELL_SIZE+this.x)>(GameGlobals.CELL_SIZE*GameGlobals.NB_COLUMNS);
 	}
   
-	isOutLRLimit(veloH: number){
+	isOutLRLimit(veloH: number) : boolean{
 	  if (veloH<0){
 		return this.isOutLeftLimit();
 	  }else if (veloH>0){
 		return this.isOutRightLimit();
 	  }
+	  return false;
 	}
   
-	hitGround(board: Array<number>){
+	hitGround(board: Array<number>) : boolean {
 	  let x,y;
 	  //--------------------------------------------
 	  let hit = (x: number,y: number)=>{

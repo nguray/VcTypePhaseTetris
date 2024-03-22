@@ -64,7 +64,7 @@ export default class GameScene extends Phaser.Scene {
 	
 	}
 
-	computeCompleteLines(){
+	computeCompleteLines(): number{
 		let nbLines = 0;
 		let fCompleted = false;
 		//------------------------------
@@ -139,7 +139,7 @@ export default class GameScene extends Phaser.Scene {
 		}
 	}
 	
-	isGameOver(){
+	isGameOver() : boolean{
 		//-------------------------------------
 		for (let i=0;i<GameGlobals.NB_COLUMNS;i++){
 			if (this.board[i]!=0){
