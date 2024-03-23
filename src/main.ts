@@ -51,7 +51,7 @@ if (localHighScores===null){
 	}
 }
 
-loadFont("sansation", "public/assets/sansation.ttf");
+loadFont("sansation", "/assets/sansation.ttf");
 
 console.log(GameGlobals.highScores);
 

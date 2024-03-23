@@ -13,7 +13,7 @@ export default class Tetromino {
 	static tetrisBag = [1,2,3,4,5,6,7,1,2,3,4,5,6,7];
 
   
-	static geom = [
+	static readonly geom = [
 	  [{x:0,y:0},{x:0,y:0},{x:0,y:0},{x:0,y:0}],
 	  [{x:0,y:-1},{x:0,y:0},{x:-1,y:0},{x:-1,y:1}],
 	  [{x:0,y:-1},{x:0,y:0},{x:1,y:0},{x:1,y:1}],
@@ -24,7 +24,7 @@ export default class Tetromino {
 	  [{x:1,y:-1},{x:0,y:-1},{x:0,y:0},{x:0,y:1}]
 	];
   
-	static colors = [
+	static readonly colors = [
 	  0x000000,
 	  0xff6060,
 	  0x60ff60,

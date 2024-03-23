@@ -37,7 +37,7 @@ export default class GameScene extends Phaser.Scene {
 	tetrisMusic: any;
 	succesSound: any;
 
-	tblLinesToScore: NbLinesToScore = {
+	readonly tblLinesToScore: NbLinesToScore = {
 		0: 0,
 		1: 50,
 		2: 200,
@@ -189,8 +189,8 @@ export default class GameScene extends Phaser.Scene {
 	}	
 	
 	preload() {
-		this.load.audio('tetrisMusic','public/assets/Tetris.ogg');
-		this.load.audio('succesSound','public/assets/109662__grunz__success.wav');
+		this.load.audio('tetrisMusic','/assets/Tetris.ogg');
+		this.load.audio('succesSound','/assets/109662__grunz__success.wav');
 	}
 
 	create() {
