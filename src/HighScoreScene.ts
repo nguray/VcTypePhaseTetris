@@ -71,7 +71,6 @@ export default class HighScoreScene extends Phaser.Scene {
     let x1 = 2*this.cameras.main.width / 8;
     let x2 = 4.5*this.cameras.main.width / 8;
     let s1: string;
-    let s2: string;
     for (let i=0;i<10;i++){
 
       this.userNames[i].setFontFamily('sansation');
@@ -89,8 +88,7 @@ export default class HighScoreScene extends Phaser.Scene {
       this.userScores[i].setOrigin(0.0,0.5);
       this.userScores[i].setPosition(x2,y);
       s1 = "00000" + GameGlobals.highScores[i].score;
-      s2 = s1.substring(s1.length-6);
-      this.userScores[i].setText(s2);
+      this.userScores[i].setText(s1.substring(s1.length-6));
 
       y += GameGlobals.CELL_SIZE;
 
